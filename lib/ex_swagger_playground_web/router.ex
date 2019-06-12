@@ -3,6 +3,7 @@ defmodule ExSwaggerPlaygroundWeb.Router do
 
   pipeline :api do
     plug :accepts, ["json", "text"]
+    plug PhoenixSwagger.Plug.Validate
   end
 
   scope "/", ExSwaggerPlaygroundWeb do

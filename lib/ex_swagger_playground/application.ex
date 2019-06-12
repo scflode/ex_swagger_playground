@@ -8,6 +8,11 @@ defmodule ExSwaggerPlayground.Application do
       ExSwaggerPlaygroundWeb.Endpoint
     ]
 
+    swagger_config = Application.get_env(:ex_swagger_playground, :phoenix_swagger)
+    [schema | _] = Map.keys(swagger_config[:swagger_files])
+
+    PhoenixSwagger.Validator.parse_swagger_schema(schema)
+
     opts = [strategy: :one_for_one, name: ExSwaggerPlayground.Supervisor]
     Supervisor.start_link(children, opts)
   end

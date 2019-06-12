@@ -8,9 +8,7 @@ defmodule ExSwaggerPlaygroundWeb.FileController do
     consumes "multipart/form-data"
     produces "application/json"
 
-    parameters do
-      contents :formData, :file, "The file binary", required: true
-    end
+    parameter :contents, :formData, :file, "The file binary", required: true
 
     response(201, "Created")
   end

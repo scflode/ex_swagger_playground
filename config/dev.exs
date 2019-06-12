@@ -11,7 +11,14 @@ config :ex_swagger_playground, ExSwaggerPlaygroundWeb.Endpoint,
   debug_errors: true,
   code_reloader: true,
   check_origin: false,
-  watchers: []
+  watchers: [],
+  live_reload: [
+    patterns: [
+      ~r{lib/ex_swagger_playground_web/controllers/.*(ex)$},
+      ~r{priv/static/swagger.json$}
+    ]
+  ],
+  reloadable_compilers: [:gettext, :phoenix, :elixir, :phoenix_swagger]
 
 # ## SSL Support
 #
